@@ -56,4 +56,13 @@ public class CriteriaApplicationTests {
         Page<User> all = userRepository.findAll(pageable);
         all.forEach(System.out::println);
     }
+
+    @Test
+    public void testCustomSaveUser() {
+        User user = new User();
+        user.setId(10L);
+        user.setName("Lily");
+        user.setAge(20);
+        userRepository.customSaveUser(user);
+    }
 }

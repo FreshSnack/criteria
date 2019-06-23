@@ -11,5 +11,6 @@ import org.springframework.stereotype.Repository;
  * @author dingmx
  * @date 2019/6/22 21:06
  */
-public interface UserRepository extends PagingAndSortingRepository<User, Long> {
+public interface UserRepository extends PagingAndSortingRepository<User, Long>, CustomUserRepository {
+
 }
