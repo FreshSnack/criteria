@@ -1,7 +1,7 @@
-package net.ruixin.criteria.repository;
+package net.ruixin.criteria.dao;
 
 import lombok.extern.slf4j.Slf4j;
-import net.ruixin.criteria.entity.User;
+import net.ruixin.criteria.domain.User;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;

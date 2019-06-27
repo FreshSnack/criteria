@@ -1,4 +1,4 @@
-package net.ruixin.criteria.entity;
+package net.ruixin.criteria.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

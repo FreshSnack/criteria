@@ -1,7 +1,7 @@
 package net.ruixin.criteria;
 
-import net.ruixin.criteria.entity.User;
-import net.ruixin.criteria.repository.UserRepository;
+import net.ruixin.criteria.domain.User;
+import net.ruixin.criteria.dao.UserRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,9 +13,14 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Optional;
 
+/**
+ * @author dingmx
+ * @date 2019/6/27 15:05
+ */
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class CriteriaApplicationTests {
+public class ApplicationTest {
+
 
 
     @Autowired
@@ -65,4 +70,5 @@ public class CriteriaApplicationTests {
         user.setAge(20);
         userRepository.customSaveUser(user);
     }
+
 }
