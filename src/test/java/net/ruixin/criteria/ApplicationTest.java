@@ -11,6 +11,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -71,4 +72,9 @@ public class ApplicationTest {
         userRepository.customSaveUser(user);
     }
 
+    @Test
+    public void testCriteriaQuery() {
+        List<User> users = userRepository.criteriaQuery();
+        users.forEach(User::toString);
+    }
 }
