@@ -29,7 +29,7 @@ public class UserRepositoryImpl implements CustomUserRepository {
         CriteriaBuilder builder = em.getCriteriaBuilder();
         CriteriaQuery<User> query = builder.createQuery(User.class);
         Root<User> root = query.from(User.class);
-        Predicate condition = builder.gt(root.get("age"), 20);
+        Predicate condition = builder.gt(root.get("age"), 18);
         query.where(condition);
         TypedQuery<User> q = em.createQuery(query);
         List<User> users = q.getResultList();

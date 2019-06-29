@@ -1,40 +1,29 @@
-package net.ruixin.criteria;
+package net.ruixin.test;
 
 import net.ruixin.criteria.domain.User;
-import net.ruixin.criteria.dao.UserRepository;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
 import java.util.Optional;
 
-/**
- * @author dingmx
- * @date 2019/6/27 15:05
- */
-@RunWith(SpringRunner.class)
-@SpringBootTest
-public class ApplicationTest {
-
-
-
-    @Autowired
-    private UserRepository userRepository;
+public class UserTest extends ApplicationTest {
 
     @Test
     public void testAddUser() {
-        User tom = new User(1L, "Tom", 20);
+        User tom = new User();
+        tom.setId(1L);
+        tom.setName("Tom");
+        tom.setAge(20);
         userRepository.save(tom);
-        User jim = new User(2L, "Jim", 21);
+        User jim = new User();
+        jim.setId(2L);
+        jim.setName("Jim");
+        jim.setAge(21);
         userRepository.save(jim);
     }
-
 
     @Test
     public void testGetAll() {
