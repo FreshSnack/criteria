@@ -37,6 +37,12 @@ public class UserTest extends ApplicationTest {
     }
 
     @Test
+    public void testGetById() {
+        Optional<User> user = userRepository.findById(1L);
+        System.out.println(user.get());
+    }
+
+    @Test
     public void testDeleteUser() {
 //        Optional<User> user = userRepository.findById(1L);
         Optional<User> user = userRepository.findById(1L);
@@ -64,6 +70,12 @@ public class UserTest extends ApplicationTest {
     @Test
     public void testCriteriaQuery() {
         List<User> users = userRepository.criteriaQuery();
+        users.forEach(User::toString);
+    }
+
+    @Test
+    public void testGetUserByOrganName() {
+        List<User> users = userRepository.getUserByOrganName();
         users.forEach(User::toString);
     }
 }

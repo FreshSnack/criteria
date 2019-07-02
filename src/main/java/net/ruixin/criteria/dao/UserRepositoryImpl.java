@@ -6,6 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.*;
 import java.util.List;
@@ -29,6 +30,7 @@ public class UserRepositoryImpl implements CustomUserRepository {
         CriteriaBuilder builder = em.getCriteriaBuilder();
         CriteriaQuery<User> query = builder.createQuery(User.class);
         Root<User> root = query.from(User.class);
+        root.join("organ");
         Predicate condition = builder.gt(root.get("age"), 18);
         query.where(condition);
         TypedQuery<User> q = em.createQuery(query);
@@ -38,6 +40,13 @@ public class UserRepositoryImpl implements CustomUserRepository {
 //        query.where(new Expression())
 //        query.select(Selection.);
         return users;
+    }
+
+    @Override
+    public List<User> getUserByOrganName() {
+        String hql = "select u from User u where u.organ.name = :organName";
+        Query query = em.createQuery(hql).setParameter("organName", "rx");
+        return query.getResultList();
     }
 
 }

@@ -28,4 +28,7 @@ public class User {
     @JoinTable(name="USER_ROLE", joinColumns = @JoinColumn(name="USER_ID", referencedColumnName = "ID"),
     inverseJoinColumns = @JoinColumn(name="ROLE_ID", referencedColumnName = "ID"))
     private List<Role> roleList;
+    @OneToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
+    @JoinColumn(name = "ID")
+    private UserInfo userInfo;
 }

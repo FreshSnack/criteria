@@ -9,4 +9,6 @@ public interface CustomUserRepository {
     void customSaveUser(User user);
 
     List<User> criteriaQuery();
+
+    List<User> getUserByOrganName();
 }
